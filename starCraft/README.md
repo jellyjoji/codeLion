@@ -30,3 +30,7 @@ $('#hp').text('HP: ' + hp);
 ```js
 $('#spit').css({ left: 150 });
 ```
+
+## 완성
+https://github.com/jellyjoji/codeLion/assets/74365275/3bf1af96-c469-4a59-a10d-09ddce394597
+
