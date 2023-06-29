@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery 예제</title>
+</head>
+
+<body>
+  <!-- 1st -->
+  <h1>jQuery 기초</h1>
+  <textarea id="content">jQuery를 배워보자</textarea>
+
+  <!-- 2nd -->
+  <!-- 함수를 여러번 재사용할때 -->
+  <h1>jQuery 이벤트</h1>
+  <button id="click">클릭</button>
+
+  <!-- 3rd -->
+  <!-- 익명 함수 : 함수를 한번만 사용할때  -->
+  <h1>익명 함수</h1>
+  <button id="click2">클릭</button>
+
+  <!-- code.jquery.com 에서 cdn 찾아 넣기  -->
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossorigin="anonymous"></script>
+
+  <script>
+    // 1st
+    // jQuery 문법 사용법 $('#content').val()
+    console.log($('#content').val());
+
+    // 2nd
+    function hello() {
+      console.log('hello');
+    }
+    // jQuery .click 이벤트 : 클릭하면 작동하겠다
+    $('#click').click(hello);
+
+    //3rd
+    $('#click2').click(function(){
+      console.log('hello');
+    });
+  </script>
+</body>
+
+</html>

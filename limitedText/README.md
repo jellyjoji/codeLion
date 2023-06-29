@@ -22,3 +22,6 @@ function 함수이름(){
 // 해당 함수이름()으로 사용하기
 함수이름();
 ```
+
+# 완성
+![limited Text](image-1.png)

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>스타크래프트</title>
+  <style>
+    .background {
+      position: relative;
+      background-image: url('background.png');
+      background-size: 500px 330px;
+      width: 500px;
+      height: 330px;
+    }
+
+    #drone {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      top: 100px;
+      left: 60px;
+    }
+
+    #bunker {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      top: 80px;
+      right: 20px;
+    }
+
+    #spit {
+      display: none;
+      position: absolute;
+      top: 140px;
+      /* spit 의 위치 원상 복귀 */
+      left: 150px;
+      width: 50px;
+      height: 30px;
+      z-index: 2;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id='hp'>HP: 3 </h1>
+  <div class='background'>
+    <img id='drone' src="drone.png" alt="drone">
+    <img id='spit' src="spit.png" alt="spit">
+    <img id='bunker' src="bunker.png" alt="bunker">
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <script>
+    var hp = 3;
+    $('#drone').click(function () {
+      $('#spit').fadeIn();
+      // .animate( properties [, duration ] [, easing ] [, complete ] )
+      // .animate(필수요소 [선택요소] [선택요소] )
+      $('#spit').animate({ 'left': '+=250px' });
+      $('#spit').fadeOut(function () {
+        // callback 함수 : 실행이 다 끝난 후에 실행시켜주겠다.
+        hp = hp - 1;
+        // .text() : 선택한 요소 안의 내용을 가져오거나, 다른 내용으로 바꾸는 메서드
+        $('#hp').text('HP: ' + hp);
+        // hp:3 이 hp:0 이 되면 bunker 가 사라지게하겠다.
+        if (hp == 0) {
+          $('#bunker').fadeOut();
+        }
+      });
+      // .css() : 선택한 요소의 css 속성값을 가져오거나, 속성을 추가하는 메서드
+      $('#spit').css({ left: 150 });
+    });
+  </script>
+</body>
+
+</html>
