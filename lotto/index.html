@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또 번호 추첨기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>로또 번호 추첨기</h1>
+    <script>
+      // array []
+        var lotto = [];
+        // for 은 숫자, while 은 코드를 반복할때 사용 
+        // .length < 6 배열 안의 값이 6개가 될때까지 
+        while (lotto.length < 6) {
+          // parseInt 는 숫자의 소숫점은 제거하는 역할 
+          // Math.random() 렌덤 숫자에 *45 를 해주면 45까지의 렌던 숫자가 나오고 45 를 포함시키기 위해 +1 을 해줌
+            var num = parseInt(Math.random() * 45 + 1);
+            //lotto 배열에 num 값이 있는지 검사 indexOf
+            // indexOf == -1 불일치할때 조건문 
+            if (lotto.indexOf(num) == -1) {
+              // .push() 괄호 안의 내용을 추가하고 싶을때
+                lotto.push(num);
+            }
+        }
+        // 숫자를 사전적으로 배열 .sort
+        // 숫자를 작은것-큰것 a-b 순서대로 배열하고 싶을때 ((a,b)=>a-b) 
+        lotto.sort((a,b)=>a-b);
+
+        // 로또 숫자 화면에 출력
+        document.write("<div class='ball ball1'>" + lotto[0] + "</div>");
+        document.write("<div class='ball ball2'>" + lotto[1] + "</div>");
+        document.write("<div class='ball ball3'>" + lotto[2] + "</div>");
+        document.write("<div class='ball ball4'>" + lotto[3] + "</div>");
+        document.write("<div class='ball ball5'>" + lotto[4] + "</div>");
+        document.write("<div class='ball ball6'>" + lotto[5] + "</div>");
+    </script>
+</body>
+</html>
